@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.syntxr.michishirube.presentation.pages.list.ListHadistScreen
 import com.syntxr.michishirube.presentation.ui.theme.MichishirubeTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,11 +15,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MichishirubeTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                }
+                ListHadistScreen()
             }
         }
     }

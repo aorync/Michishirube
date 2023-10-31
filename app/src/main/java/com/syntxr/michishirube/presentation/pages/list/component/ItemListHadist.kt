@@ -14,25 +14,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ItemListHadits() {
+fun ItemListHadits(
+    riwayat : String,
+    modifier: Modifier = Modifier
+) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .wrapContentHeight()
             .fillMaxWidth()
             .padding(8.dp)
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = modifier.height(16.dp))
         Text(
-            modifier = Modifier.padding(start = 8.dp),
-            text = "HR. Bukhari no 1",
+            modifier = modifier.padding(start = 8.dp),
+            text = riwayat,
             fontSize = 22.sp
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = modifier.height(16.dp))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun ItemListHadistPreview() {
-    ItemListHadits()
+//    ItemListHadits()
 }

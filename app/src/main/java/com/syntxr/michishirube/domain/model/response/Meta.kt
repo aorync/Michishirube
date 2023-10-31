@@ -1,4 +1,4 @@
-package com.syntxr.michishirube.domain.model
+package com.syntxr.michishirube.domain.model.response
 
 
 import com.google.gson.annotations.SerializedName
