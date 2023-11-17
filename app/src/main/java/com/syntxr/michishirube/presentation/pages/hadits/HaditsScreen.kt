@@ -24,6 +24,7 @@ import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,6 +43,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.syntxr.michishirube.MichishirubeApplication
 import com.syntxr.michishirube.data.factory.viewModelFactory
 
@@ -55,6 +57,7 @@ data class HaditsScreenNavArgs(
 )
 @Composable
 fun HaditsScreen(
+    navigator: DestinationsNavigator,
     viewModel: HaditsViewModel = viewModel(
         factory = viewModelFactory { stateHandle ->
             HaditsViewModel(
@@ -87,14 +90,20 @@ fun HaditsScreen(
                 .wrapContentSize()
                 .fillMaxWidth(),
         ) {
-            Icon(
-                imageVector = Icons.Rounded.ArrowBackIosNew,
-                contentDescription = "btn_back",
-                Modifier
-                    .padding(4.dp)
+            IconButton(
+                modifier = Modifier
+                    .padding(8.dp)
                     .align(Alignment.CenterStart),
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
+                onClick = {
+                    navigator.navigateUp()
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.ArrowBackIosNew,
+                    contentDescription = "btn_back",
+                    tint = MaterialTheme.colorScheme.onPrimary
+                )
+            }
             Text(
                 modifier = Modifier.align(Alignment.Center),
                 text = hadits.riwayat ?: "",
@@ -202,5 +211,5 @@ fun HaditsScreen(
 @Preview
 @Composable
 fun HadistScreenPreview() {
-    HaditsScreen()
+//    HaditsScreen()
 }
