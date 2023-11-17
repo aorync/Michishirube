@@ -10,7 +10,9 @@ interface ApiInterface {
 
     @GET("/")
     suspend fun getHaditsList(
-        @Query("perawi") perawi : String
+        @Query("perawi") perawi : String,
+        @Query("page") page : Int = 1,
+        @Query("limit") limit : Int = 20
     ) : ListHaditsResponse
 
     @GET("/{perawi}/{nomor}")

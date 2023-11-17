@@ -26,7 +26,7 @@ fun ItemPerawi(
     Column(
         modifier = modifier
             .padding(16.dp)
-            .defaultMinSize(120.dp)
+            .defaultMinSize(64.dp)
             .clip(RoundedCornerShape(12.dp)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -50,5 +50,5 @@ fun ItemPerawi(
 @Preview(showBackground = true)
 @Composable
 fun ItemPerawiPreview() {
-//    ItemPerawi()
+    ItemPerawi("bukhari", 1000)
 }

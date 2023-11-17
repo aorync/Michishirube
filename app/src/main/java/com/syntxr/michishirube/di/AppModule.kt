@@ -7,19 +7,22 @@ import com.syntxr.michishirube.domain.repository.HaditsRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Injection {
-    private fun provideApi() : ApiInterface{
-        val retrofit = Retrofit.Builder()
+interface AppModule {
+    val api : ApiInterface
+    val repository : HaditsRepository
+}
+
+class AppModuleImpl : AppModule{
+    override val api: ApiInterface by lazy {
+        Retrofit.Builder()
             .baseUrl("https://hadits-api.superxdev.repl.co")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-        return retrofit.create(ApiInterface::class.java)
+            .create(ApiInterface::class.java)
+    }
+    override val repository: HaditsRepository by lazy {
+        val listPerawi = Perawis
+        HaditsRepositoryImpl(api, listPerawi)
     }
 
-    fun provideHadistRepository() : HaditsRepository{
-        val api = provideApi()
-        val perawi = Perawis
-        return HaditsRepositoryImpl(api, perawi)
-    }
 }

@@ -2,7 +2,7 @@ package com.syntxr.michishirube.data.source.local
 
 import com.syntxr.michishirube.domain.model.Perawi
 
-object ListPerawi {
+object Perawis {
     fun listPerawi() : List<Perawi>{
         return listOf(
             Perawi(
