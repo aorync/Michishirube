@@ -71,6 +71,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
     implementation("androidx.compose.material:material-icons-extended-android:1.5.4")
     implementation("androidx.compose.material:material-icons-core-android:1.5.4")
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
 //    Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

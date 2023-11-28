@@ -9,7 +9,6 @@ import com.syntxr.michishirube.data.source.remote.service.ApiInterface
 import com.syntxr.michishirube.domain.model.Perawi
 import com.syntxr.michishirube.domain.model.response.HaditsResponse
 import com.syntxr.michishirube.domain.model.response.Item
-import com.syntxr.michishirube.domain.model.response.ListHaditsResponse
 import com.syntxr.michishirube.domain.repository.HaditsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

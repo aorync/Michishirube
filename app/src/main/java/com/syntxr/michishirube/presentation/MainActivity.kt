@@ -10,14 +10,26 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.ramcosta.composedestinations.DestinationsNavHost
+import com.syntxr.michishirube.MichishirubeApplication
 import com.syntxr.michishirube.presentation.pages.NavGraphs
+import com.syntxr.michishirube.presentation.pages.home.HomeViewModel
 import com.syntxr.michishirube.presentation.ui.theme.MichishirubeTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
+
+    private val viewModel : HomeViewModel = HomeViewModel(MichishirubeApplication.repository)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen().apply {
+            setKeepOnScreenCondition{
+                viewModel.loading.value
+            }
+        }
+
         setContent {
             MichishirubeTheme {
                 Surface(

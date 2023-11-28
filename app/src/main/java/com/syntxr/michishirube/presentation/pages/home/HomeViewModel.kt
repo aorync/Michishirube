@@ -12,6 +12,9 @@ class HomeViewModel(
     private val repository: HaditsRepository,
 ) : ViewModel() {
 
+    private val _loading = MutableStateFlow(true)
+    val loading = _loading.asStateFlow()
+
     private val _state = MutableStateFlow<HomeState?>(null)
     val state = _state.asStateFlow()
 
@@ -25,6 +28,7 @@ class HomeViewModel(
                 val data = repository.listPerawi()
                 _listPerawi.emit(data)
                 _state.emit(HomeState.Success)
+                _loading.emit(false)
             } catch (e: Exception) {
                 _state.emit(HomeState.Error(e.message ?: "Unknown error"))
             }
