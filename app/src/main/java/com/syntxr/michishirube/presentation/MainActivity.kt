@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
 
         installSplashScreen().setKeepOnScreenCondition{viewModel.loading.value}
 
+
         setContent {
             MichishirubeTheme {
                 Surface(
