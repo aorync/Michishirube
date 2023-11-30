@@ -28,7 +28,7 @@ class HomeViewModel(
                 val data = repository.listPerawi()
                 _listPerawi.emit(data)
                 _state.emit(HomeState.Success)
-                _loading.emit(false)
+                _loading.value = false
             } catch (e: Exception) {
                 _state.emit(HomeState.Error(e.message ?: "Unknown error"))
             }
@@ -42,7 +42,7 @@ class HomeViewModel(
 
 
 sealed class HomeState {
-    object Loading : HomeState()
-    object Success : HomeState()
+    data object Loading : HomeState()
+    data object Success : HomeState()
     data class Error(val msg: String) : HomeState()
 }

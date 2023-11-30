@@ -20,7 +20,7 @@ import com.syntxr.michishirube.presentation.ui.theme.MichishirubeTheme
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
 
-    private val viewModel : HomeViewModel = HomeViewModel(MichishirubeApplication.repository)
+    private val viewModel = HomeViewModel(MichishirubeApplication.repository)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
