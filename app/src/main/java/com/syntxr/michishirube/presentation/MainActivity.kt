@@ -24,11 +24,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        installSplashScreen().apply {
-            setKeepOnScreenCondition{
-                viewModel.loading.value
-            }
-        }
+        installSplashScreen().setKeepOnScreenCondition{viewModel.loading.value}
 
         setContent {
             MichishirubeTheme {
