@@ -82,7 +82,8 @@ fun HomeScreen(
                     HomeState.Loading -> {
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            text = "Loading..."
+                            text = "Loading...",
+                            color = MaterialTheme.colorScheme.onBackground
                         )
                     }
 

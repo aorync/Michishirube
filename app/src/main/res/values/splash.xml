@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.SplashScreen.Michishirube" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#121212</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_just</item>
         <item name="postSplashScreenTheme">@style/Theme.Michishirube</item>
     </style>
 </resources>

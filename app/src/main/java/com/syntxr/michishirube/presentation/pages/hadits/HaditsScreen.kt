@@ -72,7 +72,7 @@ fun HaditsScreen(
     val hadits by viewModel.hadits.collectAsState()
     val clipboardManager = LocalClipboardManager.current
     val context = LocalContext.current
-    val type = "text/plain"
+    val typeText = "text/plain"
     val subject = "Share hadits with..."
     val sharewith = "ShareWith"
     val sharedText = "${hadits.perawi} \n${hadits.arabic} \n${hadits.terjemahan}"
@@ -186,15 +186,24 @@ fun HaditsScreen(
                                 contentDescription = "btn_share",
                                 tint = MaterialTheme.colorScheme.onBackground,
                                 modifier = Modifier.clickable {
-                                    val intent = Intent(Intent.ACTION_SEND)
-                                    intent.type = type
-                                    intent.putExtra(Intent.EXTRA_SUBJECT, subject)
-                                    intent.putExtra(Intent.EXTRA_TEXT, sharedText)
-                                    ContextCompat.startActivity(
-                                        context,
-                                        Intent.createChooser(intent, sharewith),
-                                        null
-                                    )
+//                                    val intent = Intent(Intent.ACTION_SEND)
+//                                    intent.type = typeText
+//                                    intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+//                                    intent.putExtra(Intent.EXTRA_TEXT, sharedText)
+//                                    ContextCompat.startActivity(
+//                                        context,
+//                                        Intent.createChooser(intent, sharewith),
+//                                        null
+//                                    )
+
+                                    val intent = Intent().apply {
+                                        action = Intent.ACTION_SEND
+                                        putExtra(Intent.EXTRA_SUBJECT, subject)
+                                        putExtra(Intent.EXTRA_TEXT, sharedText)
+                                        type = typeText
+                                    }
+
+                                    context.startActivity(Intent.createChooser(intent,null))
                                 }
                             )
                         }
